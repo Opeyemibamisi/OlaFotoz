@@ -15,7 +15,7 @@ function Footer() {
       icon: Mail,
     },
     {
-      href: "https://www.instagram.com",
+      href: "https://www.instagram.com/olafotoz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       label: "Instagram",
       icon: Camera,
     },
@@ -40,10 +40,7 @@ function Footer() {
         <a href="#contact">Contact</a>
       </div>
       <div>
-        <p>
-         
-          Retford, United Kingdom
-        </p>
+        <p>Retford, United Kingdom</p>
         <div className="social">
           {socialLinks.map(({ href, label, icon: Icon }) => (
             <a

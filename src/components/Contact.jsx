@@ -29,7 +29,7 @@ function Contact() {
       icon: Mail,
     },
     {
-      href: "https://www.instagram.com",
+      href: "https://www.instagram.com/olafotoz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       label: "Instagram",
       icon: Camera,
     },
