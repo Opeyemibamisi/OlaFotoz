@@ -13,7 +13,17 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const links = ["Work", "About", "Services", "Contact"];
+  const links = [
+    { label: "Work", href: "#work" },
+    {
+      label: "Gallery",
+      href: "https://olafotoz.pixieset.com/",
+      external: true,
+    },
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   return (
     <>
@@ -22,9 +32,14 @@ function Navbar() {
           <Logo small />
         </a>
         <nav>
-          {links.map((x) => (
-            <a key={x} href={"#" + x.toLowerCase()}>
-              {x}
+          {links.map(({ label, href, external }) => (
+            <a
+              key={label}
+              href={href}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noreferrer" : undefined}
+            >
+              {label}
             </a>
           ))}
         </nav>
@@ -48,13 +63,15 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
           >
-            {links.map((x) => (
+            {links.map(({ label, href, external }) => (
               <a
                 onClick={() => setOpen(false)}
-                key={x}
-                href={"#" + x.toLowerCase()}
+                key={label}
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noreferrer" : undefined}
               >
-                {x}
+                {label}
               </a>
             ))}
             <a onClick={() => setOpen(false)} href="#contact">

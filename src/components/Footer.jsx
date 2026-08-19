@@ -1,8 +1,31 @@
 import React from "react";
-import { AtSign, Globe2, MessageCircle } from "lucide-react";
+import { Camera, Mail, MessageCircle, Phone } from "lucide-react";
 import Logo from "./common/Logo";
 
 function Footer() {
+  const socialLinks = [
+    {
+      href: "https://wa.me/+447476229990",
+      label: "WhatsApp",
+      icon: MessageCircle,
+    },
+    {
+      href: "mailto:olafotoz1990@gmail.com",
+      label: "Email",
+      icon: Mail,
+    },
+    {
+      href: "https://www.instagram.com",
+      label: "Instagram",
+      icon: Camera,
+    },
+    {
+      href: "tel:+447476229990",
+      label: "Phone",
+      icon: Phone,
+    },
+  ];
+
   return (
     <footer>
       <div>
@@ -18,19 +41,25 @@ function Footer() {
       </div>
       <div>
         <p>
-          hello@olafotoz.com
-          <br />
-          +234 800 000 0000
-          <br />
-          Lagos, Nigeria
+         
+          Retford, United Kingdom
         </p>
         <div className="social">
-          <AtSign />
-          <Globe2 />
-          <MessageCircle />
+          {socialLinks.map(({ href, label, icon: Icon }) => (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icon size={17} />
+            </a>
+          ))}
         </div>
       </div>
-      <small>© 2026 OLAFOTOZ. ALL RIGHTS RESERVED.</small>
+      <br />
+      <p>© {new Date().getFullYear()} OLAFOTOZ. ALL RIGHTS RESERVED.</p>
     </footer>
   );
 }

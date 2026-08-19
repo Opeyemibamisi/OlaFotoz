@@ -7,7 +7,6 @@ function Featured() {
     <section className="feature">
       <div className="featureImg" />
       <Reveal className="featureText">
-        <span>01</span>
         <p className="eyebrow">PORTRAIT SERIES</p>
         <h2>
           A study of
@@ -18,7 +17,7 @@ function Featured() {
           Intimate portraits shaped by quiet moments and remarkable
           personalities.
         </p>
-        <a href="#work" className="textLink">
+        <a href="https://olafotoz.pixieset.com/" className="textLink">
           Explore story <ArrowRight size={17} />
         </a>
       </Reveal>

@@ -28,7 +28,7 @@ function Hero() {
           transition={{ delay: 0.3 }}
           className="eyebrow"
         >
-          LAGOS · NIGERIA · EST. 2018
+          UNITED · KINGDOM ·📍.
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 35 }}
@@ -65,7 +65,7 @@ function Hero() {
       <div className="scroll">
         SCROLL TO EXPLORE <span />
       </div>
-      <div className="heroNumber">01 / 05</div>
+      {/* <div className="heroNumber">01 / 05</div> */}
     </section>
   );
 }

@@ -1,14 +1,71 @@
 import React, { useState } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Camera, Check, Mail, MessageCircle, Phone } from "lucide-react";
 import Reveal from "./common/Reveal";
 
+const initialFormData = {
+  fullName: "",
+  email: "",
+  phoneNumber: "",
+  preferredDate: "",
+  preferredLocation: "",
+  photographyType: "",
+  budgetRange: "",
+  message: "",
+};
+
 function Contact() {
+  const [formData, setFormData] = useState(initialFormData);
   const [sent, setSent] = useState(false);
+
+  const socialLinks = [
+    {
+      href: "https://wa.me/+447476229990",
+      label: "WhatsApp",
+      icon: MessageCircle,
+    },
+    {
+      href: "mailto:olafotoz1990@gmail.com",
+      label: "Email",
+      icon: Mail,
+    },
+    {
+      href: "https://www.instagram.com",
+      label: "Instagram",
+      icon: Camera,
+    },
+    {
+      href: "tel:+447476229990",
+      label: "Phone",
+      icon: Phone,
+    },
+  ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const message = [
+      `Full Name: ${formData.fullName}`,
+      `Email Address: ${formData.email}`,
+      `Phone Number: ${formData.phoneNumber}`,
+      `Preferred Date: ${formData.preferredDate}`,
+      `Preferred Location: ${formData.preferredLocation}`,
+      `Photography Type: ${formData.photographyType}`,
+      `Budget Range: ${formData.budgetRange || "Not specified"}`,
+      `Message: ${formData.message}`,
+    ].join("\n");
+
+    const whatsappUrl = `https://wa.me/+447476229990?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(whatsappUrl, "_blank");
     setSent(true);
-    e.currentTarget.reset();
+    setFormData(initialFormData);
   };
 
   return (
@@ -43,27 +100,52 @@ function Contact() {
             Share a little about your vision and we'll be in touch within two
             business days.
           </p>
+          <div className="contactSocials">
+            {socialLinks.map(({ href, label, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Icon size={17} />
+              </a>
+            ))}
+          </div>
         </Reveal>
         <form onSubmit={handleSubmit}>
           {[
-            "Full Name",
-            "Email Address",
-            "Phone Number",
-            "Preferred Date",
-            "Preferred Location",
-          ].map((label, i) => (
-            <label key={label}>
+            { label: "Full Name", name: "fullName", type: "text" },
+            { label: "Email Address", name: "email", type: "email" },
+            { label: "Phone Number", name: "phoneNumber", type: "text" },
+            { label: "Preferred Date", name: "preferredDate", type: "date" },
+            {
+              label: "Preferred Location",
+              name: "preferredLocation",
+              type: "text",
+            },
+          ].map(({ label, name, type }) => (
+            <label key={name}>
               {label}
               <input
                 required
-                type={i === 1 ? "email" : i === 3 ? "date" : "text"}
-                placeholder={i === 3 ? "" : label}
+                name={name}
+                type={type}
+                value={formData[name]}
+                onChange={handleChange}
+                placeholder={type === "date" ? "" : label}
               />
             </label>
           ))}
           <label>
             Photography Type
-            <select required defaultValue="">
+            <select
+              required
+              name="photographyType"
+              value={formData.photographyType}
+              onChange={handleChange}
+            >
               <option value="" disabled>
                 Select a service
               </option>
@@ -76,23 +158,32 @@ function Contact() {
                 "Corporate",
                 "Other",
               ].map((option) => (
-                <option key={option}>{option}</option>
+                <option key={option} value={option}>
+                  {option}
+                </option>
               ))}
             </select>
           </label>
           <label>
             Budget Range
-            <select defaultValue="">
+            <select
+              name="budgetRange"
+              value={formData.budgetRange}
+              onChange={handleChange}
+            >
               <option value="">Select range</option>
-              <option>₦150k – ₦300k</option>
-              <option>₦300k – ₦600k</option>
-              <option>₦600k+</option>
+              <option value="1k – 10k">1k – 10k</option>
+              <option value="10k – 20k">10k – 20k</option>
+              <option value="20k+">20k+</option>
             </select>
           </label>
           <label className="full">
             Your Message
             <textarea
               required
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Tell us what you are dreaming up..."
               rows="4"
             />

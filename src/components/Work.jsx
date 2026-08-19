@@ -5,49 +5,49 @@ import Lightbox from "./Lightbox";
 
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1100&q=85",
+    src: "/pic1.jpg",
     type: "Portrait",
     title: "Golden Hour",
     year: "2026",
   },
   {
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1100&q=85",
+    src: "/picwed.jpg",
     type: "Wedding",
     title: "Forever Begins",
     year: "2026",
   },
   {
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1100&q=85",
+    src: "/pic10.jpg",
     type: "Fashion",
     title: "Soft Focus",
     year: "2025",
   },
   {
-    src: "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1100&q=85",
+    src: "/pic4.jpg",
     type: "Editorial",
     title: "In Bloom",
     year: "2026",
   },
   {
-    src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1100&q=85",
+    src: "/pic5.jpg",
     type: "Portrait",
     title: "Stillness",
     year: "2025",
   },
   {
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1100&q=85",
+    src: "/picwed3.jpg",
     type: "Wedding",
     title: "Afterglow",
     year: "2025",
   },
   {
-    src: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1100&q=85",
+    src: "/picfashion2.jpg",
     type: "Lifestyle",
     title: "Sunday Light",
     year: "2026",
   },
   {
-    src: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1100&q=85",
+    src: "/pic8.jpg",
     type: "Fashion",
     title: "New Form",
     year: "2025",
